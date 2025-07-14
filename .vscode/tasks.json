@@ -1,0 +1,187 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "[App] Local Development Tasks",
+      "group": "build",
+      "dependsOn": [
+        "[App] Build Runner (Watch)",
+        "[App] Slang (Watch)",
+        "[App] Test Gallery (Serve)",
+        "[Project] Documentation (Serve)",
+      ],
+    },
+    {
+      "label": "[App] Analyze (Once)",
+      "type": "shell",
+      "group": "build",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/.vscode/tasks/app/analyze.sh"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/app"
+      }
+    },
+    {
+      "label": "[App] Build Runner (Once)",
+      "type": "shell",
+      "group": "build",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/.vscode/tasks/app/build_runner_once.sh"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/app"
+      }
+    },
+    {
+      "label": "[App] Build Runner (Watch)",
+      "type": "shell",
+      "group": "build",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/.vscode/tasks/app/build_runner_watch.sh"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/app"
+      }
+    },
+    {
+      "label": "[App] Dart Fix (Dry Run)",
+      "type": "shell",
+      "group": "build",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/.vscode/tasks/app/dart_fix_dry_run.sh"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/app"
+      }
+    },
+    {
+      "label": "[App] Dart Fix (Apply)",
+      "type": "shell",
+      "group": "build",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/.vscode/tasks/app/dart_fix_apply.sh"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/app"
+      }
+    },
+    {
+      "label": "[App] Prebuild (Once)",
+      "type": "shell",
+      "group": "build",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/.vscode/tasks/app/prebuild_once.sh"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/app"
+      }
+    },
+    {
+      "label": "[App] Slang (Once)",
+      "type": "shell",
+      "group": "build",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/.vscode/tasks/app/slang_once.sh"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/app"
+      }
+    },
+    {
+      "label": "[App] Slang (Watch)",
+      "type": "shell",
+      "group": "build",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/.vscode/tasks/app/slang_watch.sh"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/app"
+      }
+    },
+    {
+      "label": "[App] Test Gallery (Clean)",
+      "type": "shell",
+      "group": "build",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/.vscode/tasks/app/test_gallery_clean.sh"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/app"
+      }
+    },
+    {
+      "label": "[App] Test Gallery (Serve)",
+      "type": "shell",
+      "group": "build",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/.vscode/tasks/app/test_gallery_serve.sh"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/app"
+      }
+    },
+    {
+      "label": "[App] Test Coverage (Serve)",
+      "type": "shell",
+      "group": "build",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/.vscode/tasks/app/test_coverage_serve.sh"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/app"
+      }
+    },
+    {
+      "label": "[Packages] Prebuild (Once)",
+      "type": "shell",
+      "group": "build",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/.vscode/tasks/packages/prebuild_once.sh"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/packages"
+      }
+    },
+    {
+      "label": "[Project] Documentation (Serve)",
+      "type": "shell",
+      "group": "build",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/.vscode/tasks/project/documentation_serve.sh"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
+    {
+      "label": "[Supabase] Start",
+      "type": "shell",
+      "group": "build",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/.vscode/tasks/supabase/start.sh"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "dependsOn": [
+        "[Project] Direnv Allow"
+      ],
+      "dependsOrder": "sequence"
+    },
+  ]
+}
