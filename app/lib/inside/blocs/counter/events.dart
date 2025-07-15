@@ -2,6 +2,10 @@ sealed class Counter_Event {
   const Counter_Event();
 }
 
+class Counter_Initialize extends Counter_Event {
+  const Counter_Initialize();
+}
+
 class Counter_Increment extends Counter_Event {
   const Counter_Increment();
 }

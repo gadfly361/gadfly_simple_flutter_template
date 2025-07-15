@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'base.dart';
+import 'persistence/repository.dart';
 
 /// When adding a new repository, be sure to add it to:
 /// - [getList]
@@ -8,12 +9,22 @@ import 'base.dart';
 ///   - Make sure to add the concrete type to `RepositoryProvider<ConcreteType>`
 ///     otherwise it will register the base class.
 class Repositories_All {
-  const Repositories_All();
+  const Repositories_All({
+    required this.persistenceRepository,
+  });
 
-  List<Repository_Base> getList() => [];
+  final Repository_Persistence persistenceRepository;
+
+  List<Repository_Base> getList() => [
+    persistenceRepository,
+  ];
 
   List<RepositoryProvider<Repository_Base>> createProviders() {
-    return [];
+    return [
+      RepositoryProvider<Repository_Persistence>(
+        create: (context) => persistenceRepository,
+      ),
+    ];
   }
 
   Future<void> initialize() async {

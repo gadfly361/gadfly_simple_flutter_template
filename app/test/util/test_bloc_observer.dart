@@ -1,8 +1,8 @@
 import 'package:flow_test/flow_test.dart';
 import 'package:logging/logging.dart';
+import 'package:my_app/outside/effect_providers/mixpanel/effect_fake.dart';
 import 'package:recase/recase.dart';
 
-import 'mocks/effects/mixpanel_effect.dart';
 import 'mocks/mocked_app.dart';
 
 TestBlocObserver createTestBlocObserver(FTMockedApp<MocksContainer> mockedApp) {

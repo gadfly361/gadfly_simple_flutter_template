@@ -11,7 +11,9 @@ import '../outside/client_providers/all.dart';
 import '../outside/client_providers/sentry/client_provider.dart';
 import '../outside/effect_providers/all.dart';
 import '../outside/effect_providers/mixpanel/effect_provider.dart';
+import '../outside/effect_providers/shared_preferences/effect_provider.dart';
 import '../outside/repositories/all.dart';
+import '../outside/repositories/persistence/repository.dart';
 import 'builder.dart';
 import 'configurations/configuration.dart';
 
@@ -52,11 +54,19 @@ Future<void> appRunner({
       initialSessionId: initialSessionId,
       configuration: configuration.effectProvidersConfigurations.mixpanel,
     ),
+    sharedPreferencesEffectProvider: SharedPreferences_EffectProvider(
+      prefix: 'my_app',
+    ),
   );
   await effectProviders.initialize();
 
   // Create and initialize repositories
-  const repositories = Repositories_All();
+  final repositories = Repositories_All(
+    persistenceRepository: Repository_Persistence(
+      sharedPreferencesEffectProvider:
+          effectProviders.sharedPreferencesEffectProvider,
+    ),
+  );
   await repositories.initialize();
 
   // Setup Bloc Observer

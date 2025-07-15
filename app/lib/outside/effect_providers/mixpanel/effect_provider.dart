@@ -2,14 +2,12 @@ import 'dart:async';
 
 import 'package:mixpanel_flutter/mixpanel_flutter.dart';
 
-import '../../../shared/mixins/logging.dart';
 import '../base.dart';
 import 'effect.dart';
 import 'effect_fake.dart';
 import 'effect_provider_configuration.dart';
 
-class Mixpanel_EffectProvider extends EffectProvider_Base<Mixpanel_Effect>
-    with SharedMixin_Logging {
+class Mixpanel_EffectProvider extends EffectProvider_Base<Mixpanel_Effect> {
   Mixpanel_EffectProvider({
     required this.initialSessionId,
     required this.configuration,
