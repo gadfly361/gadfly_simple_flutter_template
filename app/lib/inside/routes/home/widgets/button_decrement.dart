@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:forui/widgets/button.dart';
 
 import '../../../blocs/counter/bloc.dart';
 import '../../../blocs/counter/events.dart';
@@ -11,13 +10,18 @@ class Home_Button_Decrement extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FButton(
-      label: Text(context.t.home.decrement),
-      style: FButtonStyle.destructive,
-      onPress: () {
+    return OutlinedButton(
+      style: OutlinedButton.styleFrom(
+        side: const BorderSide(color: Colors.transparent),
+        minimumSize: const Size(double.infinity, 48),
+        backgroundColor: Colors.red,
+        foregroundColor: Colors.white,
+      ),
+      onPressed: () {
         final counterBloc = context.read<Counter_Bloc>();
         counterBloc.add(const Counter_Decrement());
       },
+      child: Text(context.t.home.decrement),
     );
   }
 }

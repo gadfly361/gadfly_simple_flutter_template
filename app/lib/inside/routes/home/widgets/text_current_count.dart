@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:forui/theme.dart';
 import '../../../blocs/counter/bloc.dart';
 import '../../../i18n/translations.g.dart';
 
@@ -13,7 +12,7 @@ class Home_Text_CurrentCount extends StatelessWidget {
 
     return Text(
       context.t.home.currentCount(count: count),
-      style: context.theme.typography.xl3,
+      style: Theme.of(context).textTheme.headlineMedium,
     );
   }
 }

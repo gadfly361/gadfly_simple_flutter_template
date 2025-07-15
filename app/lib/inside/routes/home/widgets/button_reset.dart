@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:forui/widgets/button.dart';
 
 import '../../../blocs/counter/bloc.dart';
 import '../../../blocs/counter/events.dart';
@@ -11,13 +10,12 @@ class Home_Button_Reset extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FButton(
-      label: Text(context.t.home.reset),
-      style: FButtonStyle.ghost,
-      onPress: () {
+    return TextButton(
+      onPressed: () {
         final counterBloc = context.read<Counter_Bloc>();
         counterBloc.add(const Counter_Reset());
       },
+      child: Text(context.t.home.reset),
     );
   }
 }

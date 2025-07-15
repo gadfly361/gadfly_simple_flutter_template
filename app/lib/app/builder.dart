@@ -6,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 // explicitly
 // ignore: depend_on_referenced_packages
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:forui/forui.dart';
 import 'package:logging/logging.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
@@ -74,12 +73,6 @@ class App extends StatelessWidget {
       ],
       child: MaterialApp.router(
         theme: theme.materialThemeData,
-        builder: (context, child) {
-          return FTheme(
-            data: theme.foruiThemeData,
-            child: child ?? const FScaffold(content: SizedBox()),
-          );
-        },
         debugShowCheckedModeBanner: false,
         scrollBehavior: const MaterialScrollBehavior().copyWith(
           dragDevices: {
@@ -91,7 +84,6 @@ class App extends StatelessWidget {
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
-          FLocalizations.delegate,
         ],
         locale: TranslationProvider.of(context).flutterLocale,
         supportedLocales: AppLocaleUtils.supportedLocales,
