@@ -43,3 +43,13 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+
+# Gadfly Simple Flutter Template
+.fvm/
+coverage
+failures
+goldens
+screenshots
+gallery
+custom_lint.log
