@@ -11,6 +11,10 @@ class Home_Button_Reset extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
+      style: TextButton.styleFrom(
+        side: const BorderSide(color: Colors.transparent),
+        minimumSize: const Size(double.infinity, 48),
+      ),
       onPressed: () {
         final counterBloc = context.read<Counter_Bloc>();
         counterBloc.add(const Counter_Event_Reset());

@@ -52,13 +52,12 @@ class Home_Page extends StatelessWidget implements AutoRouteWrapper {
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Home_Button_Increment(),
-                  SizedBox(height: context.tokens.spacing.small),
-                  const Home_Button_Decrement(),
-                  SizedBox(height: context.tokens.spacing.small),
-                  const Home_Button_Reset(),
-                  SizedBox(height: context.tokens.spacing.small),
+                spacing: context.tokens.spacing.small,
+                children: const [
+                  Home_Button_Increment(),
+                  Home_Button_Decrement(),
+                  Home_Button_Reset(),
+                  SizedBox.shrink(),
                 ],
               ),
             ),
