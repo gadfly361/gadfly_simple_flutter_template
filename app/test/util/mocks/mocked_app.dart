@@ -4,7 +4,6 @@ import 'package:mocktail/mocktail.dart';
 import 'package:my_app/outside/effect_providers/all.dart';
 import 'package:my_app/outside/effect_providers/mixpanel/effect_fake.dart';
 import 'package:my_app/outside/repositories/all.dart';
-import 'package:my_app/outside/theme/theme.dart';
 
 import '../app_builder.dart';
 import 'effect_providers.dart';
@@ -13,16 +12,16 @@ import 'repositories.dart';
 
 List<MockedApp> createdMockedApps() => [
   MockedApp(
-    key: const Key('zincLight'),
+    key: const Key('light'),
     events: [],
     mocks: MocksContainer(),
-    theme: OutsideThemes.lightTheme,
+    themeMode: ThemeMode.light,
   ),
   MockedApp(
-    key: const Key('zincDark'),
+    key: const Key('dark'),
     events: [],
     mocks: MocksContainer(),
-    theme: OutsideThemes.darkTheme,
+    themeMode: ThemeMode.dark,
   ),
 ];
 
@@ -31,12 +30,12 @@ class MockedApp extends FTMockedApp<MocksContainer> {
     required Key key,
     required super.events,
     required super.mocks,
-    required OutsideTheme theme,
+    required ThemeMode themeMode,
   }) : super(
          appBuilder: () async => await testAppBuilder(
            key: key,
            mocks: mocks,
-           theme: theme,
+           themeMode: themeMode,
          ),
        );
 }

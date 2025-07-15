@@ -1,9 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:logging/logging.dart' as logging;
 
 import '../../inside/i18n/translations.g.dart';
 import '../../outside/client_providers/sentry/client_provider_configuration.dart';
 import '../../outside/effect_providers/mixpanel/effect_provider_configuration.dart';
-import '../../outside/theme/theme.dart';
 import '../runner.dart';
 import 'configuration.dart';
 
@@ -13,7 +13,7 @@ void main() {
   final configuration = AppConfiguration(
     appLocale: AppLocale.en,
     logLevel: logging.Level.INFO,
-    theme: OutsideThemes.lightTheme,
+    themeMode: ThemeMode.system,
     clientProvidersConfigurations: ClientProvidersConfigurations(
       sentry: const Sentry_ClientProvider_Configuration(
         dsn: 'CHANGE_ME',

@@ -7,28 +7,19 @@ part 'tokens/extensions.dart';
 part 'tokens/radius.dart';
 part 'tokens/spacing.dart';
 
-class OutsideTheme {
-  OutsideTheme({
-    required this.materialThemeData,
-  });
-
-  final ThemeData materialThemeData;
-}
-
 class OutsideThemes {
-  static OutsideTheme get lightTheme => OutsideTheme(
-    materialThemeData: _materialThemeData_light,
-  );
-  static OutsideTheme get darkTheme => OutsideTheme(
-    materialThemeData: _materialThemeData_dark,
-  );
+  static ThemeData get lightTheme => _materialThemeData_light;
+  static ThemeData get darkTheme => _materialThemeData_dark;
 }
 
 final _materialThemeData_light = ThemeData(
   useMaterial3: true,
   extensions: const [_tokenExtensions],
+  colorScheme: const ColorScheme.light(),
 );
 
-final _materialThemeData_dark = _materialThemeData_light.copyWith(
-  brightness: Brightness.dark,
+final _materialThemeData_dark = ThemeData(
+  useMaterial3: true,
+  extensions: const [_tokenExtensions],
+  colorScheme: const ColorScheme.dark(),
 );

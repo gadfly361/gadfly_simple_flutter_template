@@ -79,7 +79,7 @@ Future<void> appRunner({
       child: await appBuilder(
         key: const Key('app'),
         appLocale: configuration.appLocale,
-        theme: configuration.theme,
+        themeMode: configuration.themeMode,
         effectProviders: effectProviders,
         repositories: repositories,
       ),

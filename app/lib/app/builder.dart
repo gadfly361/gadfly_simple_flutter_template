@@ -24,7 +24,7 @@ final _log = Logger('app_builder');
 Future<Widget> appBuilder({
   required Key key,
   required AppLocale appLocale,
-  required OutsideTheme theme,
+  required ThemeMode themeMode,
   required EffectProviders_All effectProviders,
   required Repositories_All repositories,
 }) async {
@@ -41,7 +41,7 @@ Future<Widget> appBuilder({
   return TranslationProvider(
     child: App(
       key: key,
-      theme: theme,
+      themeMode: themeMode,
       router: router,
       effectProviders: effectProviders,
       repositories: repositories,
@@ -51,14 +51,14 @@ Future<Widget> appBuilder({
 
 class App extends StatelessWidget {
   const App({
-    required this.theme,
+    required this.themeMode,
     required this.router,
     required this.effectProviders,
     required this.repositories,
     super.key,
   });
 
-  final OutsideTheme theme;
+  final ThemeMode themeMode;
   final EffectProviders_All effectProviders;
   final Repositories_All repositories;
 
@@ -72,7 +72,9 @@ class App extends StatelessWidget {
         ...repositories.createProviders(),
       ],
       child: MaterialApp.router(
-        theme: theme.materialThemeData,
+        theme: OutsideThemes.lightTheme,
+        darkTheme: OutsideThemes.darkTheme,
+        themeMode: themeMode,
         debugShowCheckedModeBanner: false,
         scrollBehavior: const MaterialScrollBehavior().copyWith(
           dragDevices: {
