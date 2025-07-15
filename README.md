@@ -1,5 +1,7 @@
 # my_app
 
+**This is for personal use, so I don't recommend using it. It is not documented and it is subject to change.**
+
 To open the documentation, run the following VSCode Task (`CMD+SHIFT+B`):
 
 ```sh
