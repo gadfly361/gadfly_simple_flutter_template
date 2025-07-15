@@ -20,13 +20,13 @@ class OutsideTheme {
 
 class OutsideThemes {
   static OutsideTheme get lightTheme => OutsideTheme(
-        materialThemeData: _materialThemeData_light,
-        foruiThemeData: _foruiThemeData_light,
-      );
+    materialThemeData: _materialThemeData_light,
+    foruiThemeData: _foruiThemeData_light,
+  );
   static OutsideTheme get darkTheme => OutsideTheme(
-        materialThemeData: _materialThemeData_dark,
-        foruiThemeData: _foruiThemeData_dark,
-      );
+    materialThemeData: _materialThemeData_dark,
+    foruiThemeData: _foruiThemeData_dark,
+  );
 }
 
 final _materialThemeData_light = ThemeData(
@@ -44,10 +44,15 @@ final _foruiThemeData_light = FThemes.zinc.light.copyWith(
     errorStyle: FThemes.zinc.light.textFieldStyle.errorStyle.copyWith(
       labelTextStyle:
           FThemes.zinc.light.textFieldStyle.enabledStyle.labelTextStyle,
-      errorTextStyle:
-          FThemes.zinc.light.textFieldStyle.errorStyle.errorTextStyle.copyWith(
-        fontWeight: FontWeight.normal,
-      ),
+      errorTextStyle: FThemes
+          .zinc
+          .light
+          .textFieldStyle
+          .errorStyle
+          .errorTextStyle
+          .copyWith(
+            fontWeight: FontWeight.normal,
+          ),
     ),
   ),
 );
@@ -57,10 +62,10 @@ final _foruiThemeData_dark = FThemes.zinc.dark.copyWith(
     errorStyle: FThemes.zinc.dark.textFieldStyle.errorStyle.copyWith(
       labelTextStyle:
           FThemes.zinc.dark.textFieldStyle.enabledStyle.labelTextStyle,
-      errorTextStyle:
-          FThemes.zinc.dark.textFieldStyle.errorStyle.errorTextStyle.copyWith(
-        fontWeight: FontWeight.normal,
-      ),
+      errorTextStyle: FThemes.zinc.dark.textFieldStyle.errorStyle.errorTextStyle
+          .copyWith(
+            fontWeight: FontWeight.normal,
+          ),
     ),
   ),
 );

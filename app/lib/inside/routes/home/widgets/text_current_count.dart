@@ -13,7 +13,7 @@ class Home_Text_CurrentCount extends StatelessWidget {
 
     return Text(
       context.t.home.currentCount(count: count),
-      style: context.theme.typography.lg,
+      style: context.theme.typography.xl3,
     );
   }
 }

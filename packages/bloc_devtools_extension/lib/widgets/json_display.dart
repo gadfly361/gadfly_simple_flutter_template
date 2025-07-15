@@ -29,14 +29,15 @@ class JsonDisplay extends StatelessWidget {
     switch (selectedJsonFilter) {
       case BDEJsonFilter.diff:
         return Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: diffNodeToFlutter(
-              jd.JsonDiffer.fromJson(
-                events[effectiveEventIndex].previousAppState,
-                events[effectiveEventIndex].currentAppState,
-              ).diff(),
-            ),);
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: diffNodeToFlutter(
+            jd.JsonDiffer.fromJson(
+              events[effectiveEventIndex].previousAppState,
+              events[effectiveEventIndex].currentAppState,
+            ).diff(),
+          ),
+        );
       case BDEJsonFilter.tree:
         return jv.JsonView(
           json: events[effectiveEventIndex].currentAppState,

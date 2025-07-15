@@ -22,30 +22,36 @@ class LeftPane extends StatelessWidget {
     switch (selectedLogFilter) {
       case BDELogFilter.error:
         return logRecords
-            .where((log) => {
-                  'SHOUT',
-                  'SEVERE',
-                  'ERROR',
-                }.contains(log.level.toUpperCase()),)
+            .where(
+              (log) => {
+                'SHOUT',
+                'SEVERE',
+                'ERROR',
+              }.contains(log.level.toUpperCase()),
+            )
             .toList();
       case BDELogFilter.warning:
         return logRecords
-            .where((log) => {
-                  'SHOUT',
-                  'SEVERE',
-                  'ERROR',
-                  'WARNING',
-                }.contains(log.level.toUpperCase()),)
+            .where(
+              (log) => {
+                'SHOUT',
+                'SEVERE',
+                'ERROR',
+                'WARNING',
+              }.contains(log.level.toUpperCase()),
+            )
             .toList();
       case BDELogFilter.info:
         return logRecords
-            .where((log) => {
-                  'SHOUT',
-                  'SEVERE',
-                  'ERROR',
-                  'WARNING',
-                  'INFO',
-                }.contains(log.level.toUpperCase()),)
+            .where(
+              (log) => {
+                'SHOUT',
+                'SEVERE',
+                'ERROR',
+                'WARNING',
+                'INFO',
+              }.contains(log.level.toUpperCase()),
+            )
             .toList();
       case BDELogFilter.all:
         return logRecords;

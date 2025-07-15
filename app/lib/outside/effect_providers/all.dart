@@ -16,8 +16,8 @@ class EffectProviders_All {
   final Mixpanel_EffectProvider mixpanelEffectProvider;
 
   List<EffectProvider_Base<dynamic>> getList() => [
-        mixpanelEffectProvider,
-      ];
+    mixpanelEffectProvider,
+  ];
 
   List<RepositoryProvider<EffectProvider_Base<dynamic>>> createProviders() {
     return [

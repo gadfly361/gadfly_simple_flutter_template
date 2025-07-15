@@ -31,18 +31,24 @@ class LogsFilterButton extends StatelessWidget {
           ),
           PopupMenuItem(
             value: BDELogFilter.error,
-            child: Text('ERROR',
-                style: TextStyle(color: _color(BDELogFilter.error)),),
+            child: Text(
+              'ERROR',
+              style: TextStyle(color: _color(BDELogFilter.error)),
+            ),
           ),
           PopupMenuItem(
             value: BDELogFilter.warning,
-            child: Text('WARNING',
-                style: TextStyle(color: _color(BDELogFilter.warning)),),
+            child: Text(
+              'WARNING',
+              style: TextStyle(color: _color(BDELogFilter.warning)),
+            ),
           ),
           PopupMenuItem(
             value: BDELogFilter.info,
-            child: Text('INFO',
-                style: TextStyle(color: _color(BDELogFilter.info)),),
+            child: Text(
+              'INFO',
+              style: TextStyle(color: _color(BDELogFilter.info)),
+            ),
           ),
           PopupMenuItem(
             value: BDELogFilter.all,

@@ -28,16 +28,34 @@ class Home_Page extends StatelessWidget implements AutoRouteWrapper {
       breakpointType: InsideUtil_BreakpointType.constrained,
       scaffold: FScaffold(
         header: const Home_Header(),
-        content: SingleChildScrollView(
+        content: SafeArea(
+          top: false,
+          left: false,
+          right: false,
           child: Column(
             children: [
-              const Home_Text_CurrentCount(),
-              SizedBox(height: context.tokens.spacing.medium),
-              const Home_Button_Increment(),
-              SizedBox(height: context.tokens.spacing.medium),
-              const Home_Button_Decrement(),
-              SizedBox(height: context.tokens.spacing.medium),
-              const Home_Button_Reset(),
+              const Expanded(
+                child: Center(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Home_Text_CurrentCount(),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Home_Button_Increment(),
+                  SizedBox(height: context.tokens.spacing.medium),
+                  const Home_Button_Decrement(),
+                  SizedBox(height: context.tokens.spacing.medium),
+                  const Home_Button_Reset(),
+                  SizedBox(height: context.tokens.spacing.medium),
+                ],
+              ),
             ],
           ),
         ),

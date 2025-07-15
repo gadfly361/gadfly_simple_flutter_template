@@ -6,7 +6,8 @@ import 'logs_filter_button.dart';
 
 class StepThroughEvents extends StatelessWidget {
   const StepThroughEvents({
-    required this.onSetSelectedEventIndex, super.key,
+    required this.onSetSelectedEventIndex,
+    super.key,
   });
 
   final void Function(int index) onSetSelectedEventIndex;

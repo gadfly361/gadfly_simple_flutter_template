@@ -1,5 +1,8 @@
 include: package:very_good_analysis/analysis_options.7.0.0.yaml
 
+formatter:
+  trailing_commas: preserve
+
 linter:
   rules:
     always_use_package_imports: false
@@ -14,6 +17,7 @@ linter:
     prefer_relative_imports: true
     public_member_api_docs: false
     sort_constructors_first: false
+    require_trailing_commas: true
 
 analyzer:
   errors:

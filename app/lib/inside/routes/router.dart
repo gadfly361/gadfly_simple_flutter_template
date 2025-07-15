@@ -16,10 +16,10 @@ class Routes_router extends RootStackRouter with SharedMixin_Logging {
 
   @override
   List<AutoRoute> get routes => [
-        AutoRoute(
-          path: '/home',
-          page: Home_Route.page,
-        ),
-        RedirectRoute(path: '*', redirectTo: '/home'),
-      ];
+    AutoRoute(
+      path: '/home',
+      page: Home_Route.page,
+    ),
+    RedirectRoute(path: '*', redirectTo: '/home'),
+  ];
 }

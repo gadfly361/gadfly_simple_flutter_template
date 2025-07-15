@@ -11,19 +11,19 @@ import 'effects/all.dart';
 import 'effects/mixpanel_effect.dart';
 
 List<MockedApp> createdMockedApps() => [
-      MockedApp(
-        key: const Key('zincLight'),
-        events: [],
-        mocks: MocksContainer(),
-        theme: OutsideThemes.lightTheme,
-      ),
-      MockedApp(
-        key: const Key('zincDark'),
-        events: [],
-        mocks: MocksContainer(),
-        theme: OutsideThemes.darkTheme,
-      ),
-    ];
+  MockedApp(
+    key: const Key('zincLight'),
+    events: [],
+    mocks: MocksContainer(),
+    theme: OutsideThemes.lightTheme,
+  ),
+  MockedApp(
+    key: const Key('zincDark'),
+    events: [],
+    mocks: MocksContainer(),
+    theme: OutsideThemes.darkTheme,
+  ),
+];
 
 class MockedApp extends FTMockedApp<MocksContainer> {
   MockedApp({
@@ -32,12 +32,12 @@ class MockedApp extends FTMockedApp<MocksContainer> {
     required super.mocks,
     required OutsideTheme theme,
   }) : super(
-          appBuilder: () async => await testAppBuilder(
-            key: key,
-            mocks: mocks,
-            theme: theme,
-          ),
-        );
+         appBuilder: () async => await testAppBuilder(
+           key: key,
+           mocks: mocks,
+           theme: theme,
+         ),
+       );
 }
 
 class MocksContainer {
@@ -57,7 +57,8 @@ class MocksContainer {
   // to return our mocked effects. So be sure to mock the getEffect methos for
   // all new effect providers.
   void mockEffectProviderGetEffectMethods() {
-    when(effectProviders.mixpanelEffectProvider.getEffect)
-        .thenReturn(effects.mixpanelEffect);
+    when(
+      effectProviders.mixpanelEffectProvider.getEffect,
+    ).thenReturn(effects.mixpanelEffect);
   }
 }

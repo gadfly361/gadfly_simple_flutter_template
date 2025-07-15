@@ -104,8 +104,8 @@ class App extends StatelessWidget {
           navigatorObservers: () => [
             AutoRouteObserver(),
             Mixpanel_Effect_RouteObserver(
-              mixpanelEffect:
-                  effectProviders.mixpanelEffectProvider.getEffect(),
+              mixpanelEffect: effectProviders.mixpanelEffectProvider
+                  .getEffect(),
             ),
             SentryNavigatorObserver(),
           ],

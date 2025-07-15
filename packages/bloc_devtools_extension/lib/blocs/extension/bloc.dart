@@ -21,13 +21,15 @@ class ExtensionBloc extends Bloc<ExtensionEvent, ExtensionState> {
           ),
         ) {
     on<ExtensionEvent_Reset>((event, emit) {
-      emit(ExtensionState(
-        selectedEventIndex: null,
-        events: const [],
-        appState: const {},
-        selectedLogFilter: state.selectedLogFilter,
-        selectedJsonFilter: state.selectedJsonFilter,
-      ),);
+      emit(
+        ExtensionState(
+          selectedEventIndex: null,
+          events: const [],
+          appState: const {},
+          selectedLogFilter: state.selectedLogFilter,
+          selectedJsonFilter: state.selectedJsonFilter,
+        ),
+      );
     });
 
     on<ExtensionEvent_AddBlocEvent>(
@@ -76,7 +78,9 @@ class ExtensionBloc extends Bloc<ExtensionEvent, ExtensionState> {
 
       try {
         sharedPreferences.setString(
-            'jsonFilter', event.selectedJsonFilter.name,);
+          'jsonFilter',
+          event.selectedJsonFilter.name,
+        );
       } catch (_) {}
     });
 

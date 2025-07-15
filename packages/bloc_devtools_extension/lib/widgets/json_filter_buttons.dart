@@ -23,7 +23,8 @@ class JsonFilterButtons extends StatelessWidget {
             onPressed: () {
               context.read<ExtensionBloc>().add(
                     ExtensionEvent_SetSelectedJsonFilter(
-                        selectedJsonFilter: filter,),
+                      selectedJsonFilter: filter,
+                    ),
                   );
             },
             style: selectedJsonFilter == filter

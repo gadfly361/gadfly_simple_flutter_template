@@ -51,8 +51,8 @@ class ThemeTokenExtensions extends ThemeExtension<ThemeTokenExtensions>
 
   @override
   List<Object?> get props => [
-        iconSize,
-        radius,
-        spacing,
-      ];
+    iconSize,
+    radius,
+    spacing,
+  ];
 }

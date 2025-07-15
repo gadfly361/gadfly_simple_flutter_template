@@ -20,8 +20,9 @@ class Blocs_Observer extends BlocObserver with SharedMixin_Logging {
   void _initializeLogger() {
     Logger.root.level = Level.ALL;
     Logger.root.onRecord.listen((record) {
-      final yoLogRecord =
-          SharedModel_BlocDevtoolsExtension_LogRecord(logRecord: record);
+      final yoLogRecord = SharedModel_BlocDevtoolsExtension_LogRecord(
+        logRecord: record,
+      );
       _devtoolsLogRecords.add(yoLogRecord);
     });
   }
