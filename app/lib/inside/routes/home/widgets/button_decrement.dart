@@ -19,7 +19,7 @@ class Home_Button_Decrement extends StatelessWidget {
       ),
       onPressed: () {
         final counterBloc = context.read<Counter_Bloc>();
-        counterBloc.add(const Counter_Decrement());
+        counterBloc.add(const Counter_Event_Decrement());
       },
       child: Text(context.t.home.decrement),
     );

@@ -13,7 +13,7 @@ class Home_Button_Reset extends StatelessWidget {
     return TextButton(
       onPressed: () {
         final counterBloc = context.read<Counter_Bloc>();
-        counterBloc.add(const Counter_Reset());
+        counterBloc.add(const Counter_Event_Reset());
       },
       child: Text(context.t.home.reset),
     );

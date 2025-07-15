@@ -10,12 +10,12 @@ class Counter_Bloc extends Bloc_Base<Counter_Event, Counter_State> {
   Counter_Bloc({
     required this.persistenceRepository,
   }) : super(const Counter_State(count: 0)) {
-    on<Counter_Initialize>(onCounterInitialize);
-    on<Counter_Increment>(onIncrement);
-    on<Counter_Decrement>(onDecrement);
-    on<Counter_Reset>(onReset);
+    on<Counter_Event_Initialize>(onCounterInitialize);
+    on<Counter_Event_Increment>(onIncrement);
+    on<Counter_Event_Decrement>(onDecrement);
+    on<Counter_Event_Reset>(onReset);
 
-    add(const Counter_Initialize());
+    add(const Counter_Event_Initialize());
   }
 
   static const String counterKey = 'home/counter';
@@ -23,7 +23,7 @@ class Counter_Bloc extends Bloc_Base<Counter_Event, Counter_State> {
   final Repository_Persistence persistenceRepository;
 
   Future<void> onCounterInitialize(
-    Counter_Initialize event,
+    Counter_Event_Initialize event,
     Emitter<Counter_State> emit,
   ) async {
     try {
@@ -35,7 +35,7 @@ class Counter_Bloc extends Bloc_Base<Counter_Event, Counter_State> {
   }
 
   Future<void> onIncrement(
-    Counter_Increment event,
+    Counter_Event_Increment event,
     Emitter<Counter_State> emit,
   ) async {
     final updatedCount = state.count + 1;
@@ -49,7 +49,7 @@ class Counter_Bloc extends Bloc_Base<Counter_Event, Counter_State> {
   }
 
   Future<void> onDecrement(
-    Counter_Decrement event,
+    Counter_Event_Decrement event,
     Emitter<Counter_State> emit,
   ) async {
     final updatedCount = state.count - 1;
@@ -62,7 +62,10 @@ class Counter_Bloc extends Bloc_Base<Counter_Event, Counter_State> {
     }
   }
 
-  Future<void> onReset(Counter_Reset event, Emitter<Counter_State> emit) async {
+  Future<void> onReset(
+    Counter_Event_Reset event,
+    Emitter<Counter_State> emit,
+  ) async {
     try {
       await persistenceRepository.saveInt(counterKey, 0);
     } catch (e, st) {
