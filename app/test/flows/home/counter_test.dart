@@ -198,6 +198,29 @@ void main() {
 
           actions: (actions) async {
             await actions.userAction.tap(find.byType(Home_Button_Increment));
+            await actions.testerAction.pump(const Duration(milliseconds: 200));
+          },
+          expectations: (expectations) {
+            expectations.expect(
+              find.text('Current count: 1'),
+              findsOneWidget,
+              reason: 'Counter should increment to 1',
+            );
+            expectations.expect(
+              find.text('+1'),
+              findsOneWidget,
+              reason: 'Increment animation should be visible',
+            );
+          },
+          expectedEvents: [
+            Counter_Event_Increment,
+          ],
+        );
+
+        await tester.screenshot(
+          description: 'pump and settle to complete animation',
+
+          actions: (actions) async {
             await actions.testerAction.pumpAndSettle();
           },
           expectations: (expectations) {
@@ -206,10 +229,13 @@ void main() {
               findsOneWidget,
               reason: 'Counter should increment to 1',
             );
+            expectations.expect(
+              find.text('+1'),
+              findsNothing,
+              reason: 'Increment animation should complete and be gone',
+            );
           },
-          expectedEvents: [
-            Counter_Event_Increment,
-          ],
+          expectedEvents: [],
         );
       },
     );
@@ -303,6 +329,29 @@ void main() {
 
           actions: (actions) async {
             await actions.userAction.tap(find.byType(Home_Button_Decrement));
+            await actions.testerAction.pump(const Duration(milliseconds: 200));
+          },
+          expectations: (expectations) {
+            expectations.expect(
+              find.text('Current count: -1'),
+              findsOneWidget,
+              reason: 'Counter should decrement to -1',
+            );
+            expectations.expect(
+              find.text('-1'),
+              findsOneWidget,
+              reason: 'Decrement animation should be visible',
+            );
+          },
+          expectedEvents: [
+            Counter_Event_Decrement,
+          ],
+        );
+
+        await tester.screenshot(
+          description: 'pump and settle to complete animation',
+
+          actions: (actions) async {
             await actions.testerAction.pumpAndSettle();
           },
           expectations: (expectations) {
@@ -311,10 +360,13 @@ void main() {
               findsOneWidget,
               reason: 'Counter should decrement to -1',
             );
+            expectations.expect(
+              find.text('-1'),
+              findsNothing,
+              reason: 'Decrement animation should complete and be gone',
+            );
           },
-          expectedEvents: [
-            Counter_Event_Decrement,
-          ],
+          expectedEvents: [],
         );
       },
     );
@@ -408,13 +460,19 @@ void main() {
 
           actions: (actions) async {
             await actions.userAction.tap(find.byType(Home_Button_Reset));
-            await actions.testerAction.pumpAndSettle();
+            await actions.testerAction.pump(const Duration(milliseconds: 200));
           },
           expectations: (expectations) {
             expectations.expect(
               find.text('Current count: 0'),
               findsOneWidget,
               reason: 'Counter should reset to 0',
+            );
+            expectations.expect(
+              find.text('0'),
+              findsNothing,
+              reason:
+                  '''Reset animation should not be visible if the count is already 0''',
             );
           },
           expectedEvents: [

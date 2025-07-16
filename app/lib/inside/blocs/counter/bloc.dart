@@ -28,7 +28,11 @@ class Counter_Bloc extends Bloc_Base<Counter_Event, Counter_State> {
   ) async {
     try {
       final savedCount = await persistenceRepository.getInt(counterKey) ?? 0;
-      emit(state.copyWith(count: savedCount));
+      emit(
+        state.copyWith(
+          count: savedCount,
+        ),
+      );
     } catch (e, st) {
       log.warning('Failed to load $counterKey value', e, st);
     }
@@ -44,7 +48,17 @@ class Counter_Bloc extends Bloc_Base<Counter_Event, Counter_State> {
     } catch (e, st) {
       log.warning('Failed to save $counterKey value', e, st);
     } finally {
-      emit(state.copyWith(count: updatedCount));
+      emit(
+        state.copyWith(
+          count: updatedCount,
+          setCountChangedBy: () => updatedCount - state.count,
+        ),
+      );
+      emit(
+        state.copyWith(
+          setCountChangedBy: () => null,
+        ),
+      );
     }
   }
 
@@ -58,7 +72,17 @@ class Counter_Bloc extends Bloc_Base<Counter_Event, Counter_State> {
     } catch (e, st) {
       log.warning('Failed to save home/counter value', e, st);
     } finally {
-      emit(state.copyWith(count: updatedCount));
+      emit(
+        state.copyWith(
+          count: updatedCount,
+          setCountChangedBy: () => updatedCount - state.count,
+        ),
+      );
+      emit(
+        state.copyWith(
+          setCountChangedBy: () => null,
+        ),
+      );
     }
   }
 
@@ -66,12 +90,23 @@ class Counter_Bloc extends Bloc_Base<Counter_Event, Counter_State> {
     Counter_Event_Reset event,
     Emitter<Counter_State> emit,
   ) async {
+    const updatedCount = 0;
     try {
-      await persistenceRepository.saveInt(counterKey, 0);
+      await persistenceRepository.saveInt(counterKey, updatedCount);
     } catch (e, st) {
       log.warning('Failed to save $counterKey value', e, st);
     } finally {
-      emit(state.copyWith(count: 0));
+      emit(
+        state.copyWith(
+          count: updatedCount,
+          setCountChangedBy: () => updatedCount - state.count,
+        ),
+      );
+      emit(
+        state.copyWith(
+          setCountChangedBy: () => null,
+        ),
+      );
     }
   }
 }
