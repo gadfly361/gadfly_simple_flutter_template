@@ -34,7 +34,7 @@ Future<Widget> appBuilder({
 
   final appNavigatorKey = GlobalKey<NavigatorState>();
 
-  final router = Routes_router(
+  final router = Routes_Router(
     navigatorKey: appNavigatorKey,
   );
 
@@ -62,7 +62,7 @@ class App extends StatelessWidget {
   final EffectProviders_All effectProviders;
   final Repositories_All repositories;
 
-  final Routes_router router;
+  final Routes_Router router;
 
   @override
   Widget build(BuildContext context) {

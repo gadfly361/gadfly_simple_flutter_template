@@ -6,8 +6,8 @@ import 'home/page.dart';
 part 'router.gr.dart';
 
 @AutoRouterConfig()
-class Routes_router extends RootStackRouter with SharedMixin_Logging {
-  Routes_router({
+class Routes_Router extends RootStackRouter with SharedMixin_Logging {
+  Routes_Router({
     required super.navigatorKey,
   });
 
