@@ -5,7 +5,7 @@ version: 1.0.0+1
 
 environment:
   sdk: ^3.8.1
-  flutter: 3.32.6
+  flutter: 3.35.4
 
 dependencies:
   auto_route: ^9.3.0+1

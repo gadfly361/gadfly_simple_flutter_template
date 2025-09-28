@@ -49,10 +49,20 @@ class TranslationsHomeEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+
+	/// en: 'Home'
 	String get title => 'Home';
+
+	/// en: 'Current count: $count'
 	String currentCount({required Object count}) => 'Current count: ${count}';
+
+	/// en: 'Increment'
 	String get increment => 'Increment';
+
+	/// en: 'Decrement'
 	String get decrement => 'Decrement';
+
+	/// en: 'Reset'
 	String get reset => 'Reset';
 }
 

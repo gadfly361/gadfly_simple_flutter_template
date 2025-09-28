@@ -13,7 +13,7 @@ dart pub global activate fvm
 
 ```sh
 # In the root directory
-fvm use 3.32.6
+fvm use 3.35.4
 ```
 
 This is used to ensure that everyone who is coding on the flutter project is using the same flutter version.
